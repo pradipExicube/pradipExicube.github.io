@@ -391,7 +391,7 @@ var sbtn = document.getElementById("sharebtn");
 var url_string = window.location.href //window.location.href
 var url = new URL(url_string);
 var name = url.searchParams.get("name")
-var viewName = name.replace(/_|-/g, " ");;
+var viewName = name.replace(/[_-]/g, " ");
     document.getElementById("sender").innerHTML = name.toUpperCase(); 
 
 
