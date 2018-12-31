@@ -392,7 +392,8 @@ var url_string = window.location.href //window.location.href
 var url = new URL(url_string);
 var name = url.searchParams.get("name")
 var viewName = name.replace(/[_-]/g, " ");
-    document.getElementById("sender").innerHTML = viewName.toUpperCase(); 
+console.log(viewName)
+document.getElementById("sender").innerHTML = viewName.toUpperCase(); 
 
 
 var pannelId = document.getElementById('pannel');
