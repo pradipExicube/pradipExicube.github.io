@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy New Year</title>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="google" value="notranslate">
+  
+ 
+
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:&effect=shadow-multiple' rel='stylesheet'>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/fcqTtzV.png">
+   <style>
+    .curtain {
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .curtain__wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .curtain__wrapper input[type="checkbox"] {
+        position: absolute;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        opacity: 0;
+        top: 0;
+        left: 0;
+    }
+    .curtain__wrapper input[type="checkbox"]:checked ~ div.curtain__panel--left {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    .curtain__wrapper input[type="checkbox"]:checked ~ div.curtain__panel--right {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    .curtain__panel {
+        display: flex;
+        align-items: center;
+        background: rgb(255, 1, 107);
+        flex-direction: column;
+        color: #fff;
+        float: left;
+        position: relative;
+        width: 50%;
+        height: 100%;
+        transition: all 1s ease-out;
+        z-index: 2;
+    }
+    .curtain__panel--left {
+        justify-content: center;
+        align-items: flex-end;
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+    }
+    .curtain__panel--right {
+        justify-content: center;
+        align-items: flex-start;
+        -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+    }
+    .blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+    .curtain__content {
+        background-color: rgb(252, 35, 35);
+     -webkit-animation: random 8s infinite;
+     animation: random 8s infinite;
+        color: #fff;
+        padding: 1rem 0;
+        position: absolute;
+        text-align: center;
+        z-index: 1;
+        width: 100%;
+        height: calc(100% - 2rem);
+    }
+    .curtain__content img {
+        width: 20%;
+    }
+
+    @keyframes  random {
+    70% { background: #cc0000; /* Old browsers */
+background: -moz-linear-gradient(top, #cc0000 0%, #cc0000 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #cc0000 0%,#cc0000 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #cc0000 0%,#cc0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0000', endColorstr='#cc0000',GradientType=0 ); /* IE6-9 */; } 
+    70% {background: #499bea; /* Old browsers */
+background: -moz-linear-gradient(top, #499bea 0%, #383096 99%, #207ce5 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #499bea 0%,#383096 99%,#207ce5 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #499bea 0%,#383096 99%,#207ce5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 ); /* IE6-9 */; } 
+    75% {background: #cc0000; /* Old browsers */
+background: -moz-linear-gradient(top, #cc0000 0%, #d100b1 52%, #65ff00 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #cc0000 0%,#d100b1 52%,#65ff00 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #cc0000 0%,#d100b1 52%,#65ff00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc0000', endColorstr='#65ff00',GradientType=0 ); /* IE6-9 */ } 
+    60% { background: #299a0b; /* Old browsers */
+background: -moz-linear-gradient(top, #299a0b 0%, #0e7007 50%, #299a0b 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #299a0b 0%,#0e7007 50%,#299a0b 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #299a0b 0%,#0e7007 50%,#299a0b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', endColorstr='#299a0b',GradientType=0 ); /* IE6-9 */; }
+    75% {  }  
+}
+
+    /* Modal*/
+
+    .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 555; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 98%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+@import url(http://fonts.googleapis.com/css?family=Concert+One);
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background: rgba(3,168,154,1);
+                  background: -moz-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(3,168,154,1)), color-stop(44%, rgba(3,54,143,1)), color-stop(100%, rgba(109,0,25,1)));
+                  background: -webkit-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -o-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -ms-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: linear-gradient(135deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03a89a', endColorstr='#6d0019', GradientType=1 );
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+   background: rgba(3,168,154,1);
+                  background: -moz-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(3,168,154,1)), color-stop(44%, rgba(3,54,143,1)), color-stop(100%, rgba(109,0,25,1)));
+                  background: -webkit-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -o-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -ms-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: linear-gradient(135deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03a89a', endColorstr='#6d0019', GradientType=1 );
+  color: white;
+}
+
+
+
+
+@-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+}
+
+
+    </style>
+  </head>
+  <body style="margin: 0px; background: url('https://media.giphy.com/media/OK5LK5zLFfdm/giphy.gif') no-repeat center center; background-size: cover; overflow-x: hidden;">
+    <div style="width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
+      <header style="width: 100%; background: rgba(255,0,132,1);
+      background: -moz-linear-gradient(-45deg, rgba(255,0,132,1) 0%, rgba(0,92,250,1) 29%, rgba(250,0,0,1) 61%, rgba(255,0,132,1) 100%);
+      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(255,0,132,1)), color-stop(29%, rgba(0,92,250,1)), color-stop(61%, rgba(250,0,0,1)), color-stop(100%, rgba(255,0,132,1)));
+      background: -webkit-linear-gradient(-45deg, rgba(255,0,132,1) 0%, rgba(0,92,250,1) 29%, rgba(250,0,0,1) 61%, rgba(255,0,132,1) 100%);
+      background: -o-linear-gradient(-45deg, rgba(255,0,132,1) 0%, rgba(0,92,250,1) 29%, rgba(250,0,0,1) 61%, rgba(255,0,132,1) 100%);
+      background: -ms-linear-gradient(-45deg, rgba(255,0,132,1) 0%, rgba(0,92,250,1) 29%, rgba(250,0,0,1) 61%, rgba(255,0,132,1) 100%);
+      background: linear-gradient(135deg, rgba(255,0,132,1) 0%, rgba(0,92,250,1) 29%, rgba(250,0,0,1) 61%, rgba(255,0,132,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0084', endColorstr='#ff0084', GradientType=1 ) background-size: 120px; color: #fff; Font-size: 22px; font-family: 'Courier New', Courier, monospace; text-align: center; padding: 12px 6px; display: flex; justify-content: space-between; align-items: center; flex-direction: row;">
+        <img style="width: 10%; display: block; margin: 10px auto; -webkit-filter: grayscale(100%);
+  filter: grayscale(10%); -webkit-filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.5));" src="https://dumielauxepices.net/sites/default/files/ribbon-clipart-transparent-background-740998-865180.png" alt="Image">
+      Magic Box
+        <img style="width: 10%; display: block; margin: 10px auto; -webkit-filter: grayscale(100%); 
+        filter: grayscale(10%); -webkit-filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.5));" src="https://dumielauxepices.net/sites/default/files/ribbon-clipart-transparent-background-740998-865180.png" alt="Image">
+    </header>
+    
+    <section style="width: 100%;"><img style="width: 90%; display: block; margin: 10px auto;" src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/CCTS16_BannerAd_cep.jpg?alt=media&token=bfc4014a-2b8c-4dd3-b882-ef551deaa641" alt="Image"></section>
+     <section>  <marquee direction = "right"><p style=" width: 90%; margin: 10px auto; text-align: center; line-height: 22px; font-size: 30px; color: #fff;" id="sender"> Sudipta Mukherjee </p></marquee>
+        <p  class="blink" style="font-family: 'Courier New', Courier, monospace; width: 90%; margin: 10px auto; text-align: center; line-height: 22px; font-size: 20px; color: #fff;"> Send you a Gift Messege</p>
+    </section>
+   
+   
+   
+   
+   
+    <section style="width: 100%; height: 300px; margin: 0px auto;" >
+        <div class="curtain">
+            <div class="curtain__wrapper">
+                <input type="checkbox" checked  id='pannel'>
+                
+                <div class="curtain__panel curtain__panel--left" >
+                    <img src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/leftPart2.png?alt=media&token=88fe73a6-17d7-4875-a20b-358aebf7679d" alt="leftpart2" style="width: 200px; height: 100px; display: block;">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/leftPart.png?alt=media&token=7aaaf56e-a50a-40d5-a863-d7461e4bf099" alt="Image" class="blink" style="width: 70%; display: block; margin-bottom: 3px;">
+                
+                </div> <!-- curtain__panel -->
+                
+                <div class="curtain__content">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/c9107-happy-new-year-gif-2018.gif?alt=media&token=5adcbc07-a95f-4a40-9788-c236fc710990" style="position: absolute; z-index: 555; top:0%; left:0px; width: 100%;" id="hideitem">
+                     <img src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/hny.gif?alt=media&token=fc961109-c46a-461b-9e69-df5eaed2ac77">
+                    <h2 style="font-family: 'Courier New', Courier, monospace;" >Happy New Year 2019 </h2>
+                    
+                    <p style="font-family: 'Courier New', Courier, monospace; width: 90%; margin: 10px auto; text-align: center; line-height: 22px; font-size: 16px; color: #fff;" id='demo'>May you always be surrounded by hope and guided by the stars. Have a prosperous New Year!</p>
+                </div>
+                
+                <div class="curtain__panel curtain__panel--right" id='pannel'>
+                      
+                <img src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/rightPart2.png?alt=media&token=ec1cbcae-dca1-4da7-b114-e7497b45d3ed" alt="rightpart2" style="width: 200px; height: 100px; display: block;">
+                <img src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/rightPart.png?alt=media&token=9e660897-8a36-4f85-85e1-a993c11c32f4" alt="rightpart1"  class="blink" style="width: 70%; display: block;">
+                 
+            </div> <!-- curtain__panel -->
+                
+            </div> <!-- curtain__wrapper -->
+        </div> <!-- curtain -->
+    </section>
+    
+      <section style="width: 100%;"><img style="width: 90%; display: block; margin: 10px auto;" src="https://firebasestorage.googleapis.com/v0/b/contestdb-dac37.appspot.com/o/CCTS16_BannerAd_cep.jpg?alt=media&token=bfc4014a-2b8c-4dd3-b882-ef551deaa641" alt="Image"></section>
+     
+      <section>
+          <a   id="myBtn"
+          style="width: 90%; margin: 1px auto; display:block;background: rgba(3,168,154,1);
+          background: -moz-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+          background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(3,168,154,1)), color-stop(44%, rgba(3,54,143,1)), color-stop(100%, rgba(109,0,25,1)));
+          background: -webkit-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+          background: -o-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+          background: -ms-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+          background: linear-gradient(135deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03a89a', endColorstr='#6d0019', GradientType=1 );; 
+          color: #fff; padding: 10px 6px; border-radius: 6px; font-size: 18px; text-align: center; font-family: 'Courier New', Courier, monospace;"><img style="width: 26px; display: inline-block; vertical-align: middle;" src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c543.png" alt="Image"> 
+         Send your Gift message</a>
+       </section>
+       <div id="myModal" class="modal">
+            
+              <!-- Modal content -->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span class="close">&times;</span>
+                  <h2>Send Messege</h2>
+                </div>
+                <div class="modal-body">
+                   <p>Enter your Name and Share</p>
+                  <input type="text" placeholder="Your Name" style="width:90%;height:30px;font-size:12pt" id='name'><br><br>
+                </div>
+                <div class="modal-footer" id='sharebtn'>
+                  <!-- <h3>Modal Footer</h3> -->
+                  <a  
+                  style="width: 90%; margin: 1px auto; display:block;background: rgba(3,168,154,1);
+                  background: -moz-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(3,168,154,1)), color-stop(44%, rgba(3,54,143,1)), color-stop(100%, rgba(109,0,25,1)));
+                  background: -webkit-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -o-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: -ms-linear-gradient(-45deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  background: linear-gradient(135deg, rgba(3,168,154,1) 0%, rgba(3,54,143,1) 44%, rgba(109,0,25,1) 100%);
+                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03a89a', endColorstr='#6d0019', GradientType=1 );; 
+                  color: #fff; padding: 10px 6px; border-radius: 6px; font-size: 18px; text-align: center; font-family: 'Courier New', Courier, monospace;"><img style="width: 26px; display: inline-block; vertical-align: middle;" src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c543.png" alt="Image"> 
+                  share now</a>
+                  
+                </div>
+              </div>
+            
+            </div>
+      <!-- <section style="display: flex; justify-content: space-around; align-items: center; flex-direction: row; margin: 15px 0px;">
+      <a style="margin: 10px; display:block; padding: 10px 6px; text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 20px; color: green; font-weight: bold;"><img style="width: 80px; margin: 0px auto; margin-bottom: 10px; display: block;" src="http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c543.png">Share</a>
+        <a style="margin: 10px; display:block; padding: 10px 6px; text-align: center; font-family: 'Courier New', Courier, monospace; font-size: 20px; color: white; font-weight: bold;"><img style="width: 80px; margin: 0px auto; margin-bottom: 10px; display: block;" src="https://www.freeiconspng.com/uploads/facebook-chat-logo-png-19.png">Share</a>
+      </section> -->
+ 
+      <div id="myModal" class="modal">
+            
+      <footer style="background: #800000;display: flex; justify-content: center; align-items: center; flex-direction: column; color: #fff; font-family: 'Courier New', Courier, monospace; line-height: 22px; padding: 10px 6px;">
+          <a href="#" style="color: #fff; text-decoration: none !important; font-family: 'Courier New', Courier, monospace; line-height: 22px;">Terms & Conditons</a>
+          <!-- <span>|</span> -->
+          <a href="#" style="color: #fff; text-decoration: none !important; font-family: 'Courier New', Courier, monospace; line-height: 22px;">Privacy Policy</a>
+          <!-- <span>|</span> -->
+          © Copyright All Reserves 2018
+        </footer>
+    </div>
+
+    <script>
+    
+ var modal = document.getElementById('myModal');
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+var sbtn = document.getElementById("sharebtn");
+
+var url_string = window.location.href //window.location.href
+var url = new URL(url_string);
+var name = url.searchParams.get("name");
+
+    document.getElementById("sender").innerHTML = name; 
+
+
+var pannelId = document.getElementById('pannel')
+pannelId.onclick = function() {
+setTimeout(function(){document.getElementById('hideitem').style.display = "none"; }, 2000);
+var items = ['Dear new year, bless my besties with all the good luck and good cheer',
+'Forever my warm wishes are with you, Have a promising and Great & Happy New Year 2018!',
+'May The New Year See You Giving, Loving, Living And Lots Of Hugging! Wishing You A Happy And Healthy Life And A Prosperous New Year.',
+'Wish your Life always remains Bright throughout. Have a rocking New year.',
+'I wish you spend a great year ahead that starts with happiness and ends with that too. Happy New year.',
+'Warmest greetings and best wishes for the new year & Holidays!',
+"In every thing there must be a reason,a time 2come and a time 2go. I pray that this New Year brings2you happiness and joy 4ever and ever."]
+var item = items[Math.floor(Math.random()*items.length)]
+document.getElementById("demo").innerHTML = item;
+//alert(item)   
+
+}
+
+
+
+
+btn.onclick = function() {
+modal.style.display = "block";
+
+
+}
+
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+sbtn.onclick = function() {
+    
+    var name = document.getElementById('name').value
+    var data = name
+    var url     = "https://newyearwishmaker.blogspot.com?name="+data;
+    //alert(url);
+  
+    var whatsapp_url = "whatsapp://send?text="+'✋Hey!You have a wonderful 🎁 message from'+' '+name + '👍 '+ '👇tap to view'+ ' '+ url;
+    window.location.href = whatsapp_url;
+}
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+  
+    </script>
+  </body>
+  </html>
