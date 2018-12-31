@@ -253,7 +253,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#299a0b', end
 </script>
 <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
      <section>  
-        <p  class="blink" style="font-family: 'Courier New', Courier, monospace; width:100%; padding:4px;margin: 10px auto; text-align: center; line-height: 22px; font-size: 20px; color: #fff;font-family: Book Antiqua;background-color:#000080">You receive a Gift Messege from</p>
+        <p  class="blink" style="font-family: 'Courier New', Courier, monospace; width:100%; padding:4px;margin: 10px auto;background-color: rgb(252, 35, 35);
+        -webkit-animation: random 8s infinite;animation: random 8s infinite; text-align: center; line-height: 22px; font-size: 20px; color: #fff;font-family: Book Antiqua;background-color:#000080">You receive a Gift Messege from</p>
        <marquee behavior="alternate"><p style=" margin: 10px auto; line-height: 22px; font-size: 30px; color: #fff;" id="sender"> Sudipta Mukherjee </p></marquee>
     </section>
    
@@ -390,7 +391,7 @@ var sbtn = document.getElementById("sharebtn");
 var url_string = window.location.href //window.location.href
 var url = new URL(url_string);
 var name = url.searchParams.get("name")
-var viewName = name.replace("_", " ");
+var viewName = name.replace(/_|-/g, " ");;
     document.getElementById("sender").innerHTML = name.toUpperCase(); 
 
 
@@ -437,7 +438,7 @@ sbtn.onclick = function() {
 alert('Please Enter Your Name');
     }else{
       var name = document.getElementById('name').value
-    var data = name.replace(" ", "_");
+    var data = name.replace(/\s/g, "_");
     // var url     = "https://newyearwishmaker.blogspot.com?name="+data;
     var url     = "https://pradipExicube.github.io?name="+data;
     //alert(url);
