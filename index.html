@@ -433,8 +433,10 @@ span.onclick = function() {
 }
 
 sbtn.onclick = function() {
-    
-    var name = document.getElementById('name').value
+    if(document.getElementById('name').value == '' || document.getElementById('name').value == undefined){
+alert('Please Enter Your Name');
+    }else{
+      var name = document.getElementById('name').value
     var data = name
     // var url     = "https://newyearwishmaker.blogspot.com?name="+data;
     var url     = "https://pradipExicube.github.io?name="+data;
@@ -442,6 +444,8 @@ sbtn.onclick = function() {
   
     var whatsapp_url = "whatsapp://send?text="+'✋Hey! You have a wonderful 🎁 message from'+' '+name + '👍 '+ '👇tap to see magic'+' '+ url;
     window.location.href = whatsapp_url;
+    }
+    
 }
 
 
